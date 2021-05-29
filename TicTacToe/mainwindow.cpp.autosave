@@ -242,10 +242,6 @@ void MainWindow::envoie_position(int x, int y)
     const QUrl url2(QStringLiteral("http://localhost:8080/positiongrille"));
     QNetworkRequest request2(url2);
     request2.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
-    //QString Jsoncoor = "{\"positionX\":\"" + positionX + "\"positionY\":\"" + positionY + "\"}";
-    //QString Jsoncoor = "{\"positionX\":\" 2 \"positionY\":\" 0\"}";
-
      QString data("{\"positionX\":\"" + positionX +"\",\"positionY\":\"" + positionY +"\"}");
 
 //    positionY\":\"" + pos
@@ -495,7 +491,7 @@ void MainWindow::on_pushButton_clicked()
         if(reply3->error() == QNetworkReply::NoError){}
 
         QString reponse = QString::fromUtf8(reply3->readAll());
-        qDebug() << "reponse : " << reponse;
+        qDebug() << "reponse : " << reponse; 
     });
 
 

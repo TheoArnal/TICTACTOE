@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QNetworkReply>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -34,17 +35,22 @@ private slots:
     void on_pushButton_7_clicked();
     void on_pushButton_8_clicked();
     void on_pushButton_9_clicked();
-
     void on_pushButton_clicked();
+
+
 
 private:
     Ui::MainWindow *ui;
+
+    Player player;
+
     Player player1;
     Player player2;
     int playerTurn;
     int Gagnant;
-    char grille[3][3];
+    QString grille[3][3];
     bool grilleWin[3][3];
+
 
 
     void initialiseGrille(char value);
@@ -58,6 +64,8 @@ private:
 
     void FreezeBoard();
     void UnFreezeBoard();
+    void player_Pseudo();
+    void envoie_position(int x, int y);
 
 };
 #endif // MAINWINDOW_H
